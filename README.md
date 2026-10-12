@@ -21,6 +21,16 @@ I love games, and working with gaming data makes analytics fun. But beyond that,
 
 ---
 
+## Key DAX Measures Used
+
+To power dynamic filtering, multi-region calculations, and market shares, several custom DAX measures were implemented:
+
+* **Global Sales Calculation:**
+  ```dax
+  Total Global Sales = SUM(vgsales[Global_Sales])
+  
+---
+
 ## What’s on the Dashboard
 1. **Quick KPIs:** High-level overview showing total sales (~8.92B units sold worldwide) and catalog size (16.5K+ releases).
 2. **Top Genres by Sales:** Clear ranking of what sells best globally (Action and Sports dominating the leaderboard).
