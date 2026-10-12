@@ -29,6 +29,20 @@ To power dynamic filtering, multi-region calculations, and market shares, severa
   ```dax
   Total Global Sales = SUM(vgsales[Global_Sales])
   
+NA Sales Share = 
+DIVIDE(
+    SUM(vgsales[NA_Sales]), 
+    [Total Global Sales], 
+    0
+)
+
+
+Rank By Sales = 
+IF(
+    HASONEVALUE(vgsales[Name]),
+    RANKX(ALL(vgsales[Name]), [Total Global Sales], , DESC)
+)
+  
 ---
 
 ## What’s on the Dashboard
