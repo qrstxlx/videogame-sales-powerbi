@@ -25,10 +25,11 @@ I love games, and working with gaming data makes analytics fun. But beyond that,
 
 To power dynamic filtering, multi-region calculations, and market shares, several custom DAX measures were implemented:
 
-* **Global Sales Calculation:**
-  ```dax
-  Total Global Sales = SUM(vgsales[Global_Sales])
-  
+```dax
+-- 1. Global Sales Calculation
+Total Global Sales = SUM(vgsales[Global_Sales])
+
+-- 2. Regional Market Share (% of Global Sales)
 NA Sales Share = 
 DIVIDE(
     SUM(vgsales[NA_Sales]), 
@@ -36,13 +37,13 @@ DIVIDE(
     0
 )
 
-
+-- 3. Dynamic Top-N Title Ranking
 Rank By Sales = 
 IF(
     HASONEVALUE(vgsales[Name]),
     RANKX(ALL(vgsales[Name]), [Total Global Sales], , DESC)
 )
-  
+```
 ---
 
 ## What’s on the Dashboard
